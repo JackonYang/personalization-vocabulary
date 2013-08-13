@@ -25,8 +25,8 @@ SAT 要求的词汇量是 12000 左右。
 TF-IDF与余弦相似性
 ------------------
 
-[TF-IDF与余弦相似性的应用（一）：自动提取关键词](http://www.ruanyifeng.com/blog/2013/03/tf-idf.html)
-[TF-IDF与余弦相似性的应用（二）：找出相似文章](http://www.ruanyifeng.com/blog/2013/03/cosine_similarity.html)
-[csdn TF-IDF 简介](http://blog.csdn.net/pennyliang/article/details/1231028)
-[wiki](http://zh.wikipedia.org/wiki/TF-IDF)
-[github code](https://github.com/timtrueman/tf-idf/blob/master/tf-idf.py)
+1. [TF-IDF与余弦相似性的应用（一）：自动提取关键词](http://www.ruanyifeng.com/blog/2013/03/tf-idf.html)
+2. [TF-IDF与余弦相似性的应用（二）：找出相似文章](http://www.ruanyifeng.com/blog/2013/03/cosine_similarity.html)
+3. [csdn TF-IDF 简介](http://blog.csdn.net/pennyliang/article/details/1231028)
+4. [wiki](http://zh.wikipedia.org/wiki/TF-IDF)
+5. [github code](https://github.com/timtrueman/tf-idf/blob/master/tf-idf.py)
