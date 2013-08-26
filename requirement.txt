@@ -2,3 +2,6 @@ httplib2
 matplotlib
 numpy
 mysql-python
+nltk
+pyyaml
+jieba
