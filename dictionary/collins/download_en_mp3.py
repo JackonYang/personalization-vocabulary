@@ -31,7 +31,7 @@ def get_files():
 
 
 def parse_pron(soup, word):
-    unknown = 'unknown'
+    unknown = None
     node = soup.find('span', class_='pron')
     if not node:
         return unknown
@@ -56,6 +56,10 @@ def parse():
         soup = BeautifulSoup(text, 'html.parser')
 
         mp3_url = parse_pron(soup, word)
+        if not mp3_url:
+            print('skip %s' % word)
+            continue
+
         mp3_content = download(mp3_url)
 
         with open(mp3_filename, 'wb') as fp:
