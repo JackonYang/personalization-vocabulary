@@ -1,6 +1,7 @@
 # .gitignore by jackon.me
 
 raw_html_rsp/
+en-mp3/
 *.log
 wxpy_puid.pkl
 wxpy.pkl
