@@ -10,11 +10,16 @@ if not os.path.exists(data_dir):
     os.makedirs(data_dir)
 
 
-def download(word):
+def download(word, retry=3):
     url = url_ptn % word
-    # print('fetching %s' % word)
-    rsp = requests.get(url, timeout=3)
-    return rsp.text
+    for i in range(retry):
+        try:
+            rsp = requests.get(url, timeout=3)
+        except Exception as e:
+            print('error: %s, %s' % (url, e))
+        else:
+            return rsp.text
+    return ''
 
 
 def main(word, retry=3):
@@ -28,19 +33,12 @@ def main(word, retry=3):
     if os.path.exists(filename):
         return True
 
-    for i in range(retry):
-        try:
-            page_content = download(key)
-        except Exception as e:
-            page_content = ''
-            print('error: %s, %s' % (word, e))
-        else:
-            break
+    page_content = download(key, retry)
 
     if page_content:
         with open(filename, 'w') as f:
             f.write(page_content)
-        print('saved to: %s' % filename)
+        # print('saved to: %s' % filename)
     else:
         print('skip %s' % word)
 

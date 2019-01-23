@@ -5,6 +5,7 @@ from fetch import main as fetch_word
 
 
 initial_list_file = '../../word-lists/gre-3000-v2011/gre-3000-v2011.json'
+initial_list_file = '../../word-lists/cn-postgraduate/cn-postgraduate-5500words.json'  # noqa
 
 
 def initial_list():
@@ -14,7 +15,10 @@ def initial_list():
 
 
 def download():
-    for word in initial_list():
+    words = initial_list()
+    total_cnt = len(words)
+    for idx, word in enumerate(words):
+        print('downloading %s/%s %s' % (idx + 1, total_cnt, word))
         if not fetch_word(word):
             time.sleep(1)
 
