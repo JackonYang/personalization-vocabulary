@@ -17,21 +17,33 @@ def download(word):
     return rsp.text
 
 
-def main(word):
+def main(word, retry=3):
     """
     return skipped: True/False
     """
+    word = word.strip()
     key = word
     filename = os.path.join(data_dir, '%s.html' % key)
 
     if os.path.exists(filename):
         return True
 
-    page_content = download(key)
+    for i in range(retry):
+        try:
+            page_content = download(key)
+        except Exception as e:
+            page_content = ''
+            print('error: %s, %s' % (word, e))
+        else:
+            break
 
-    with open(filename, 'w') as f:
-        f.write(page_content)
-    print('saved to: %s' % filename)
+    if page_content:
+        with open(filename, 'w') as f:
+            f.write(page_content)
+        print('saved to: %s' % filename)
+    else:
+        print('skip %s' % word)
+
     return False
 
 
