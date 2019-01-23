@@ -1,7 +1,1 @@
-httplib2
-matplotlib
-numpy
-mysql-python
-nltk
-pyyaml
-jieba
+ftfy==5.5.1
